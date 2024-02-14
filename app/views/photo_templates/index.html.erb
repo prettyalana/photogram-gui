@@ -1,0 +1,44 @@
+<h1>List of photos</h1>
+<%#=params.inspect%>
+
+<form action="">
+
+  <label for="image_field">Image</label>
+  <input type="text" name="image" id="image_field" placeholder="Enter a URL for the image..">
+  <label for="caption_field">Caption</label>
+  <textarea name="caption" id="caption_field"></textarea>
+
+  <label for="owner_id_field">Owner Id</label>
+  <input type="text" name="owner_id" id="owner_id_field" placeholder="Enter an ID of a user">
+  <button>Add photo</button>
+</form>
+
+<table border="1">
+  <tr>
+    <th>Image</th>
+    <th>Caption</th>
+    <th>Owner</th>
+    <th>Posted</th>
+    <td></td>
+  </tr>
+
+  <%@list_of_photos.each do |a_photo|%>
+    <tr>
+      <td>
+        <img src="<%=a_photo.image%>" alt="">
+      </td>
+      <td>
+        <%=a_photo.caption%>
+      </td>
+      <td>
+        <%=a_photo.poster.username%>
+      </td>
+      <td>
+        <%=a_photo.created_at%>
+      </td>
+      <td>
+        Show details
+      </td>
+    </tr>
+  <% end %>
+</table>
