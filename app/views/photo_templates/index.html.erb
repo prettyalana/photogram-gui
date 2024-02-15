@@ -1,7 +1,6 @@
 <h1>List of photos</h1>
-<%#=params.inspect%>
 
-<form action="">
+<form action="/photos/show">
 
   <label for="image_field">Image</label>
   <input type="text" name="image" id="image_field" placeholder="Enter a URL for the image..">
@@ -37,7 +36,7 @@
         <%=a_photo.created_at%>
       </td>
       <td>
-        Show details
+        <a href="/photos/<%=a_photo.id%>">Show details</a>
       </td>
     </tr>
   <% end %>
