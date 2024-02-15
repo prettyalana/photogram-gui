@@ -36,7 +36,7 @@
       </td>
       <td><%=a_photo.caption%></td>
       <td><%=a_photo.created_at%></td>
-      <td><!--<a href="/show/<%#=@the_user%>">-->Show details</a></td>
+      <td><a href="/photos/<%=a_photo.poster.username%>">Show details</a></td>
   </tr>
 <% end %>
 </table>

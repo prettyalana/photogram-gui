@@ -35,10 +35,11 @@ class PhotosController < ApplicationController
     new_photo.caption = params.fetch("caption")
     new_photo.owner_id = params.fetch("owner_id")
 
-    new_photo.save 
+    new_photo.save
 
-    redirect_to("/photos/" + a_new_photo.id.to_s)
+    redirect_to("/photos/" + new_photo.id.to_s)
   end
+
   def add_comment
     new_comment = Comment.new
     new_comment.photo_id = params.fetch("input_photo_id")
@@ -48,6 +49,19 @@ class PhotosController < ApplicationController
     new_comment.save
 
     redirect_to("/photos")
+  end
 
+  def update
+    the_id = params.fetch("photo_id")
+    matching_photos = Photo.where({:id => the_id})
+    updated_photo = matching_photos[0]
+
+    updated_photo.image = params.fetch("input_photo")
+    updated_photo.caption = params.fetch("input_caption")
+
+    updated_photo.save
+
+   
+    redirect_to("/photos/#{updated_photo.id.to_s}")
   end
 end
