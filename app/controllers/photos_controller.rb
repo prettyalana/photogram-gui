@@ -37,7 +37,7 @@ class PhotosController < ApplicationController
 
     new_photo.save
 
-    redirect_to("/photos/" + new_photo.id.to_s)
+    redirect_to("/photos/#{new_photo.id}")
   end
 
   def add_comment
@@ -48,7 +48,7 @@ class PhotosController < ApplicationController
 
     new_comment.save
 
-    redirect_to("/photos")
+    redirect_to("/photos/#{new_comment.photo_id}")
   end
 
   def update
